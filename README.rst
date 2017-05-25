@@ -14,20 +14,18 @@
 About
 =====
 
-``reana-env-root6`` provides container image with encapsulated runtime execution
-environment containing `ROOT <https://root.cern.ch/>`_ data analysis framework
-version 6. It was developed for use in the `REANA
-<http://reana.readthedocs.io/>`_ reusable research data analysis platform.
+``reana-env-root6`` provides a container image with encapsulated runtime
+execution environment for `ROOT6 <https://root.cern.ch/>`_ based data analyses.
+It was developed for use in the `REANA <http://reana.readthedocs.io/>`_ reusable
+research data analysis platform.
 
 Usage
 =====
 
-You can use ``reana-env-root6`` as a base image for containerising your ROOT6
-based research data analyses. Just start from this base image and add your
-custom ROOT code on top::
+You can use ``reana-env-root6`` as a base image for containerising your own
+ROOT6-based research data analyses. You can simply start your ``Dockerfile``
+from this base image and add your custom ROOT code on top::
 
-   $ vim Dockerfile
-   $ cat Dockerfile
    FROM reanahub/reana-env-root6
    ADD my-macro.C /code/
    [...]
@@ -35,13 +33,24 @@ custom ROOT code on top::
 Examples
 ========
 
-Here are several concrete examples on how to use ``reana-env-root6`` environment
+Here are several complete examples on how to use ``reana-env-root6`` environment
 in your analyses:
 
-- `<https://github.com/reanahub/reana-demo-root6-rootfit>`_
+- `reana-demo-root6-roofit <https://github.com/reanahub/reana-demo-root6-rootfit>`_
+
+Development
+===========
+
+If you would like to contribute to ``reana-env-root6`` development, you can take
+advantage of provided ``Makefile``::
+
+   $ make build  # build a new version of the container image
+   $ make test   # test the built image
+   $ make push   # push it to Docker Hub
 
 More information
 ================
 
-For more information about REANA reusable research data analysis platform,
-please see `REANA documentation <http://reana.readthedocs.io/>`_.
+For more information about `REANA <http://reanahub.io/>`_ reusable research data
+analysis platform, please see `its documentation
+<http://reana.readthedocs.io/>`_.
