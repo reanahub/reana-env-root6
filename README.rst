@@ -36,7 +36,7 @@ Examples
 Here are several complete examples on how to use ``reana-env-root6`` environment
 in your analyses:
 
-- `reana-demo-root6-roofit <https://github.com/reanahub/reana-demo-root6-rootfit>`_
+- `reana-demo-root6-roofit <https://github.com/reanahub/reana-demo-root6-roofit>`_
 
 Development
 ===========
