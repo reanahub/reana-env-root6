@@ -16,27 +16,30 @@ About
 
 ``reana-env-root6`` provides a container image with encapsulated runtime
 execution environment for `ROOT6 <https://root.cern.ch/>`_ based data analyses.
-It was developed for use in the `REANA <http://reana.readthedocs.io/>`_ reusable
-research data analysis platform.
+
+``reana-env-root6`` was developed for use in the `REANA <http://www.reana.io/>`_
+reusable and reproducible research data analysis platform.
 
 Usage
 =====
 
-You can use ``reana-env-root6`` as a base image for containerising your own
-ROOT6-based research data analyses. You can simply start your ``Dockerfile``
-from this base image and add your custom ROOT code on top::
+You can use ``reana-env-root6`` provided "as is" and simply mount your own ROOT
+macros to the running container.
+
+Alternatively, you can also use ``reana-env-root6`` as a base image for
+containerising your own ROOT6-based analyses. Just start your ``Dockerfile``
+from this base image and add your own custom ROOT code on top::
 
    FROM reanahub/reana-env-root6
    ADD my-macro.C /code/
    [...]
 
-Examples
-========
-
-Here are several complete examples on how to use ``reana-env-root6`` environment
-in your analyses:
+Here are several complete examples on how to use ``reana-env-root6``
+environment in your analyses:
 
 - `reana-demo-root6-roofit <https://github.com/reanahub/reana-demo-root6-roofit>`_
+- `reana-demo-bsm-search <https://github.com/reanahub/reana-demo-bsm-search>`_
+- `reana-demo-lhcb-d2pimumu <https://github.com/reanahub/reana-demo-lhcb-d2pimumu>`_
 
 Development
 ===========
@@ -51,6 +54,14 @@ advantage of provided ``Makefile``::
 More information
 ================
 
-For more information about `REANA <http://reanahub.io/>`_ reusable research data
-analysis platform, please see `its documentation
-<http://reana.readthedocs.io/>`_.
+For more information about the REANA reusable analysis platform, please see the
+`REANA project <http://www.reana.io>`_ home page and the general `REANA
+documentation <http://reana.readthedocs.io/>`_ pages.
+
+Contributors
+============
+
+The list of contributors in alphabetical order:
+
+- `Lukas Heinrich <https://orcid.org/0000-0002-4048-7584>`_
+- `Tibor Simko <https://orcid.org/0000-0001-7202-5803>`_
