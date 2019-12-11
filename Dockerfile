@@ -34,8 +34,8 @@ RUN apt-get -y update && \
         libxpm-dev \
         make \
         openssl \
-        python3-dev \
-        python3-pip \
+        python-dev \
+        python-pip \
         xlibmesa-glu-dev \
         zlib1g-dev && \
     apt-get -y autoremove && \
