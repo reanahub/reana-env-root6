@@ -1,24 +1,53 @@
-# Environment: ROOT6 on Ubuntu/Trusty:
+# Environment: ROOT6 on Ubuntu/Bionic:
 FROM ubuntu:bionic
-RUN apt-get update
-RUN apt-get install --yes g++ cpp gcc gfortran git dpkg-dev make binutils libxpm-dev libxft-dev libxext-dev \
-                              libssl-dev libpcre3-dev xlibmesa-glu-dev libglew1.5-dev libftgl-dev libmysqlclient-dev \
-                              libfftw3-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev python3-dev \
-                              libxml2-dev libkrb5-dev libgsl0-dev libqt4-dev libx11-dev libxpm-dev libxext-dev \
-                              cmake
-
-# Install python3 extras
-RUN apt-get install --yes build-essential libpq-dev openssl libffi-dev zlib1g-dev &&\
-    apt-get install --yes python3-pip
+RUN apt-get -y update && \
+    apt-get -y install \
+        binutils \
+        build-essential \
+        cmake \
+        cpp \
+        dpkg-dev \
+        g++ \
+        gcc \
+        gfortran \
+        git \
+        graphviz-dev \
+        libavahi-compat-libdnssd-dev \
+        libffi-dev \
+        libfftw3-dev \
+        libftgl-dev \
+        libglew1.5-dev \
+        libgsl0-dev \
+        libkrb5-dev \
+        libldap2-dev \
+        libmysqlclient-dev \
+        libpcre3-dev \
+        libpq-dev \
+        libqt4-dev \
+        libssl-dev \
+        libx11-dev \
+        libxext-dev \
+        libxext-dev \
+        libxft-dev \
+        libxml2-dev \
+        libxpm-dev \
+        libxpm-dev \
+        make \
+        openssl \
+        python3-dev \
+        python3-pip \
+        xlibmesa-glu-dev \
+        zlib1g-dev && \
+    apt-get -y autoremove && \
+    apt-get -y clean
 
 ENV ROOTSYS /usr/local
-RUN git clone --quiet http://root.cern.ch/git/root.git /ROOT/root-v6-18-04 &&\
-    cd  /ROOT/root-v6-18-04 &&\
-    git checkout v6-18-04 &&\
-    cd ../ &&\
-    mkdir build_dir &&\
-    cd build_dir &&\
-    cmake ../root-v6-18-04  &&\
-    cmake --build . &&\
-    cd ../ &&\
-    rm -rf root-v6-18-04
+RUN git clone --quiet --depth 1 --branch v6-18-04 http://root.cern.ch/git/root.git /code/root && \
+    cd /code && \
+    mkdir _build && \
+    cd _build && \
+    cmake ../root && \
+    cmake --build . -- -j3 && \
+    cmake -P cmake_install.cmake && \
+    cd / && \
+    rm -rf /code
