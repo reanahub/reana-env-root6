@@ -46,7 +46,7 @@ RUN git clone --quiet --depth 1 --branch v6-18-04 http://root.cern.ch/git/root.g
     cd /code && \
     mkdir _build && \
     cd _build && \
-    cmake ../root && \
+    cmake -Dcxx17=On -Dbuiltin_xrootd=On ../root && \
     cmake --build . -- -j3 && \
     cmake -P cmake_install.cmake && \
     cd / && \
