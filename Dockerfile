@@ -51,3 +51,12 @@ RUN git clone --quiet --depth 1 --branch v6-18-04 http://root.cern.ch/git/root.g
     cmake -P cmake_install.cmake && \
     cd / && \
     rm -rf /code
+
+# Set helpful environment variables to point to local ROOT installation
+ENV CMAKE_PREFIX_PATH=/usr/local
+ENV DYLD_LIBRARY_PATH=/usr/local/lib
+ENV JUPYTER_PATH=/usr/local/etc/notebook
+ENV LD_LIBRARY_PATH=/usr/local/lib
+ENV LIBPATH=/usr/local/lib
+ENV PYTHONPATH=/usr/local/lib
+ENV SHLIB_PATH=/usr/local/lib
