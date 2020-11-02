@@ -38,6 +38,7 @@ RUN apt-get -y update && \
         python-pip \
         xlibmesa-glu-dev \
         zlib1g-dev && \
+    rm -rf /var/lib/apt/lists/* && \
     apt-get -y autoremove && \
     apt-get -y clean
 
