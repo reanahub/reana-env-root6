@@ -9,11 +9,11 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  lint-docker:
+  lint-dockerfile:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Lint Dockerfile
+      - name: Check Dockerfile compliance
         run: make lint
