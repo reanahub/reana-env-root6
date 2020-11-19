@@ -10,7 +10,7 @@ test:
 	docker run -i -t --rm $(IMAGE) root-config --version | grep -q ^6
 
 lint:
-	docker run --rm -i -v `pwd`/.hadolint.yaml:/root/.config/hadolint.yaml hadolint/hadolint < Dockerfile
+	docker run --rm -i -v `pwd`/.hadolint.yaml:/root/.config/hadolint.yaml hadolint/hadolint:v1.18.2 < Dockerfile
 
 push:
 	docker push $(IMAGE)
