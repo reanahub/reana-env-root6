@@ -1,7 +1,8 @@
-# Environment: ROOT6 on Ubuntu/Bionic:
-FROM ubuntu:bionic
-RUN apt-get -y update && \
-    apt-get -y install \
+FROM rootproject/root:6.24.06-centos7
+
+USER root
+RUN yum update -y && \
+    yum install -y \
         binutils \
         build-essential \
         cmake \
@@ -38,26 +39,8 @@ RUN apt-get -y update && \
         python-pip \
         xlibmesa-glu-dev \
         zlib1g-dev && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get -y autoremove && \
-    apt-get -y clean
+    yum clean all && \
+    rm -rf /var/cache/yum
 
-ENV ROOTSYS /usr/local
-RUN git clone --quiet --depth 1 --branch v6-18-04 http://root.cern.ch/git/root.git /code/root && \
-    cd /code && \
-    mkdir _build && \
-    cd _build && \
-    cmake -Dcxx17=On -Dbuiltin_xrootd=On ../root && \
-    cmake --build . -- -j3 && \
-    cmake -P cmake_install.cmake && \
-    cd / && \
-    rm -rf /code
-
-# Set helpful environment variables to point to local ROOT installation
-ENV CMAKE_PREFIX_PATH=/usr/local
-ENV DYLD_LIBRARY_PATH=/usr/local/lib
-ENV JUPYTER_PATH=/usr/local/etc/notebook
-ENV LD_LIBRARY_PATH=/usr/local/lib
-ENV LIBPATH=/usr/local/lib
-ENV PYTHONPATH=/usr/local/lib
-ENV SHLIB_PATH=/usr/local/lib
+USER user
+WORKDIR /home/user
