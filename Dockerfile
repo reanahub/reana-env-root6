@@ -1,15 +1,14 @@
 FROM rootproject/root:6.24.06-centos7
 
 USER root
-RUN yum install -y epel-release
-RUN yum update -y && \
-    yum install -y \
+RUN yum install -y \
         binutils \
         build-essential \
         cmake \
         cmake3 \
         cpp \
         dpkg-dev \
+        epel-release \
         g++ \
         gcc \
         gfal2-all \
@@ -57,8 +56,8 @@ RUN curl -o /etc/yum.repos.d/gfal2-repo.repo https://dmc-repo.web.cern.ch/dmc-re
     cd packaging/ && \
     RPMBUILD_SRC_EXTRA_FLAGS="--without docs --without python2" make srpm && \
     yum-builddep -y python3-gfal2 && \
-    pip install gfal2-python && \
     yum clean all && \
+    pip install gfal2-python && \
     cd / && \
     rm -rf gfal2-python && \
     rm -rf /var/cache/yum
