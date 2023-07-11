@@ -1,5 +1,5 @@
 # Environment: ROOT6 on Ubuntu/Bionic:
-FROM ubuntu:bionic
+FROM docker.io/library/ubuntu:bionic
 RUN apt-get -y update && \
     apt-get -y install \
         binutils \

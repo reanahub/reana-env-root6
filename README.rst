@@ -30,7 +30,7 @@ Alternatively, you can also use ``reana-env-root6`` as a base image for
 containerising your own ROOT6-based analyses. Just start your ``Dockerfile``
 from this base image and add your own custom ROOT code on top::
 
-   FROM reanahub/reana-env-root6
+   FROM docker.io/reanahub/reana-env-root6
    ADD my-macro.C /code/
    [...]
 
