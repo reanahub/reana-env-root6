@@ -1,7 +1,8 @@
 # Environment: ROOT6 on Ubuntu/Bionic:
 FROM docker.io/library/ubuntu:bionic
-RUN apt-get -y update && \
-    apt-get -y install \
+# hadolint ignore=DL3008
+RUN apt-get update -y && \
+    apt-get install --no-install-recommends -y \
         binutils \
         build-essential \
         cmake \
@@ -43,6 +44,7 @@ RUN apt-get -y update && \
     apt-get -y clean
 
 ENV ROOTSYS /usr/local
+# hadolint ignore=DL3003
 RUN git clone --quiet --depth 1 --branch v6-18-04 http://root.cern.ch/git/root.git /code/root && \
     cd /code && \
     mkdir _build && \
