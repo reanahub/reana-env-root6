@@ -1,4 +1,4 @@
-IMAGE=docker.io/reanahub/reana-env-root6
+IMAGE=docker.io/reanahub/reana-env-root6:6.38.00
 
 all:
 	@echo "Usage: make <action> where action is build, test, or push."
