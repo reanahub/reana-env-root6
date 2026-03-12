@@ -32,8 +32,7 @@ in your analyses:
 
 - [reana-demo-root6-roofit](https://github.com/reanahub/reana-demo-root6-roofit)
 - [reana-demo-bsm-search](https://github.com/reanahub/reana-demo-bsm-search)
--
-[reana-demo-lhcb-d2pimumu](https://github.com/reanahub/reana-demo-lhcb-d2pimumu)
+- [reana-demo-lhcb-d2pimumu](https://github.com/reanahub/reana-demo-lhcb-d2pimumu)
 
 ## Development
 
