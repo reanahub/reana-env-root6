@@ -14,7 +14,7 @@ format_prettier() {
 }
 
 format_shfmt() {
-    find . -name "*.sh" -exec shfmt -d {} \+
+    shfmt -d .
 }
 
 lint_commitlint() {
